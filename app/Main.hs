@@ -3,7 +3,7 @@ module Main where
 import Data.Char (digitToInt, isDigit)
 
 import Day.One (solveCaptcha, solveOppositeCaptcha)
-import Day.Two (calculateChecksum)
+import Day.Two (calculateChecksum, calculateDivisibleChecksum)
 
 main :: IO ()
 main = do
@@ -12,6 +12,7 @@ main = do
   putStrLn $ ("Day one solution (part 2): " ++) $ show $ solveOppositeCaptcha captchaInput
   checksumInput <- toSpreadsheet <$> readFile "inputs/DayTwo.tsv"
   putStrLn $ ("Day two solution (part 1): " ++) $ show $ calculateChecksum checksumInput
+  putStrLn $ ("Day two solution (part 2): " ++) $ show $ calculateDivisibleChecksum checksumInput
 
 toCaptcha :: String -> [Int]
 toCaptcha = fmap digitToInt . filter isDigit
