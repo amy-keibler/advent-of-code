@@ -18,6 +18,7 @@ library
   exposed-modules:     Day.One
                      , Day.Two
                      , Day.Three
+                     , Day.Four
   build-depends:       base >= 4.7 && < 5
                      , listsafe
                      , containers
