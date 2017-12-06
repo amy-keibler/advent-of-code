@@ -19,6 +19,7 @@ library
                      , Day.Two
                      , Day.Three
                      , Day.Four
+                     , Day.Five
   build-depends:       base >= 4.7 && < 5
                      , listsafe
                      , containers

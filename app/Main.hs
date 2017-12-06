@@ -6,6 +6,9 @@ import Day.One (solveCaptcha, solveOppositeCaptcha)
 import Day.Two (calculateChecksum, calculateDivisibleChecksum)
 import Day.Three (memoryDistance, memoryNeighborsLargerThan)
 import Day.Four (passPhraseValid, passPhraseAnagramValid)
+import Day.Five (mkInstructions, numStepsToEscape, plusOne, gtThreeMinus)
+
+import Data.Maybe (fromJust)
 
 main :: IO ()
 main = do
@@ -20,6 +23,9 @@ main = do
   passphraseInput <- lines <$> readFile "inputs/DayFour.txt"
   putStrLn $ ("Day four solution (part 1): " ++) $ show $ numUniquePassphrases passPhraseValid passphraseInput
   putStrLn $ ("Day four solution (part 2): " ++) $ show $ numUniquePassphrases passPhraseAnagramValid passphraseInput
+  instructionsInput <- fromJust <$> mkInstructions <$> (fmap read) <$> lines <$> readFile "inputs/DayFive.txt"
+  putStrLn $ ("Day five solution (part 1): " ++) $ show $ numStepsToEscape plusOne instructionsInput
+  putStrLn $ ("Day five solution (part 2): " ++) $ show $ numStepsToEscape gtThreeMinus instructionsInput
 
 toCaptcha :: String -> [Int]
 toCaptcha = fmap digitToInt . filter isDigit
