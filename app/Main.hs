@@ -1,3 +1,4 @@
+{-# LANGUAGE OverloadedStrings #-}
 module Main where
 
 import Data.Char (digitToInt, isDigit)
@@ -8,9 +9,11 @@ import Day.Three (memoryDistance, memoryNeighborsLargerThan)
 import Day.Four (passPhraseValid, passPhraseAnagramValid)
 import Day.Five (mkInstructions, numStepsToEscape, plusOne, gtThreeMinus)
 import Day.Six (stepsToCycle, lengthOfCycle)
+import Day.Seven (bottomProgram)
 
 import Data.Maybe (fromJust)
 import Data.Vector.Unboxed (fromList)
+import Data.ByteString.Char8 as C (pack)
 
 main :: IO ()
 main = do
@@ -29,8 +32,10 @@ main = do
   putStrLn $ ("Day five solution (part 1): " ++) $ show $ numStepsToEscape plusOne instructionsInput
   putStrLn $ ("Day five solution (part 2): " ++) $ show $ numStepsToEscape gtThreeMinus instructionsInput
   memLayout <- (fromList . fmap read) . words <$> readFile "inputs/DaySix.tsv"
-  putStrLn $ ("Day six solution (part 1): " ++ ) $ show $ stepsToCycle memLayout
-  putStrLn $ ("Day six solution (part 2): " ++ ) $ show $ lengthOfCycle memLayout
+  putStrLn $ ("Day six solution (part 1): " ++) $ show $ stepsToCycle memLayout
+  putStrLn $ ("Day six solution (part 2): " ++) $ show $ lengthOfCycle memLayout
+  programInput <- C.pack <$> readFile "inputs/DaySeven.txt"
+  putStrLn $ ("Day seven solution (part 1): " ++) $ show $ bottomProgram programInput
 
 toCaptcha :: String -> [Int]
 toCaptcha = fmap digitToInt . filter isDigit
