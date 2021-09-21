@@ -47,7 +47,7 @@ type Cell = (Int, Int)
 type NeighborMemory = M.Map Cell Int
 
 completeMemoryMap :: Int -> NeighborMemory
-completeMemoryMap n = L.foldl' addCell (M.fromList [((0,0), 1)]) $ take (n-1) cells
+completeMemoryMap n = L.foldl' addCell (M.fromList [((0,0), 1)]) $ L.take (n-1) cells
 
 addCell :: NeighborMemory -> Cell -> NeighborMemory
 addCell mem idxCell = M.insert idxCell cellNeighbors mem

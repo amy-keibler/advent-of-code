@@ -5,7 +5,7 @@ version:             0.1.0.0
 homepage:            https://github.com/amy-keibler/advent-of-code#readme
 license:             BSD3
 license-file:        LICENSE
-author:              Matt Keibler
+author:              Amy Keibler
 maintainer:          amelia.keibler@gmail.com
 copyright:           2017 Amelia Keibler
 category:            Puzzle
@@ -49,6 +49,7 @@ test-suite advent-of-code-test
                      , advent-of-code
                      , hspec
                      , vector
+  build-tool-depends:  hspec-discover:hspec-discover
   ghc-options:         -threaded -rtsopts -with-rtsopts=-N -Wall
   default-language:    Haskell2010
 
