@@ -2,12 +2,12 @@ name:                advent-of-code
 version:             0.1.0.0
 -- synopsis:
 -- description:
-homepage:            https://github.com/matt-keibler/advent-of-code#readme
+homepage:            https://github.com/amy-keibler/advent-of-code#readme
 license:             BSD3
 license-file:        LICENSE
 author:              Matt Keibler
-maintainer:          matthew.keibler@gmail.com
-copyright:           2017 Matthew Keibler
+maintainer:          amelia.keibler@gmail.com
+copyright:           2017 Amelia Keibler
 category:            Puzzle
 build-type:          Simple
 extra-source-files:  README.md
@@ -54,4 +54,4 @@ test-suite advent-of-code-test
 
 source-repository head
   type:     git
-  location: https://github.com/matt-keibler/advent-of-code
+  location: https://github.com/amy-keibler/advent-of-code
