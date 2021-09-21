@@ -23,13 +23,12 @@ parseProgram = do
   char ')'
   dependentPNames <- option [] parseDependentPNames
   endOfLine <|> endOfInput
-  return $ Program pname (weight) dependentPNames
+  return $ Program pname weight dependentPNames
 
 parseDependentPNames :: Parser [PName]
 parseDependentPNames = do
   string " -> "
-  dependentPNames <- ((AP.takeWhile (\c -> (c /= ',') && (c /= '\n'))) `sepBy1` (string ", "))
-  return dependentPNames
+  ((AP.takeWhile (\c -> (c /= ',') && (c /= '\n'))) `sepBy1` (string ", "))
 
 parsePrograms :: ByteString -> Either String [Program]
 parsePrograms = parseOnly (many1 parseProgram)

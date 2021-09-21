@@ -1,7 +1,7 @@
 module Day.Two (calculateChecksum
                , calculateDivisibleChecksum) where
 
-import Data.Maybe (fromMaybe, catMaybes)
+import Data.Maybe (fromMaybe, mapMaybe)
 import Data.List (sort, tails)
 import Data.List.Safe as LS
 
@@ -13,7 +13,7 @@ calculateDivisibleChecksum :: (Integral a) => [[a]] -> a
 calculateDivisibleChecksum = sum . fmap wholeDivOfRow
 
 wholeDivOfRow :: Integral a => [a] -> a
-wholeDivOfRow values = sum $ catMaybes $ fmap wholeDivOfValue $ tails $ sort values
+wholeDivOfRow values = sum $ mapMaybe wholeDivOfValue $ tails $ sort values
 
 wholeDivOfValue :: Integral a => [a] -> Maybe a
 wholeDivOfValue vals = quot <$> dividend <*> divisor
